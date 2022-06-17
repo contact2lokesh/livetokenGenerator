@@ -10,7 +10,7 @@ io.origins((_, callback) => {
 	callback(null, true);
 });
 
-const url = 'http://localhost:8080';
+const url = 'Livechatapp-env.eba-trsxa2ux.ap-south-1.elasticbeanstalk.com';
 
 io.on('connection', (socket) => {
 	console.log('a user connected', socket.id);
@@ -157,7 +157,7 @@ io.on('connection', (socket) => {
 
 		console.log('meeting ended id = ', id);
 		axios
-			.post('http://localhost:8080/deleteliveroom', {
+			.post('Livechatapp-env.eba-trsxa2ux.ap-south-1.elasticbeanstalk.com/deleteliveroom', {
 				channelName: id
 			})
 			.then(function(response) {
@@ -212,7 +212,7 @@ io.on('connection', (socket) => {
 		// users[userId].role = 'host';
 		socket.to(roomId).emit('host_changed', user);
 		axios
-			.post('http://localhost:8080/updateHost', {
+			.post('Livechatapp-env.eba-trsxa2ux.ap-south-1.elasticbeanstalk.com/updateHost', {
 				channelName: roomId,
 				hostName: user.userName,
 				userId: user.userId
